@@ -6,19 +6,19 @@
 		die(" Connection Error "); 
 	}
 	
-	if(isset($_GET['Delete']))
+	if(isset($_GET['DeleteLibrarian']))
 	{
-		$id = $_GET['Delete'];
+		$librarianID = $_GET['DeleteLibrarian'];
 		
-		$query = "DELETE FROM calculatefine 
-					WHERE id = '".$id."'";
+		$query = "DELETE FROM librarian 
+					WHERE librarianID = '".$librarianID."'";
 			
 		$result = mysqli_query($conn, $query);
 		
 		if($result)
 		{
 			echo "Data successfully deleted from system";
-			header("location:viewFineDetails.php");
+			header("location:LibrarianList.php");
 		}
 		
 		else
@@ -28,6 +28,6 @@
 	}
 	else
 	{
-		header("location:viewFineDetails.php");
+		header("location:LibrarianList.php");
 	}
 ?>
